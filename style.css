@@ -20,6 +20,7 @@ h1 {
   font-size: var(--size-2);
   text-align: center;
   padding-top: var(--size-2);
+  padding-bottom: var(--size-1);
 }
 
 #names {
@@ -36,4 +37,12 @@ p {
 #name-btn {
   font-size: var(--size-2);
   padding: var(--size-1);
+}
+
+#searchbar {
+  outline: none;
+  font-size: var(--size-1);
+}
+#search-btn {
+  font-size: var(--size-1);
 }
