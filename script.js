@@ -15,7 +15,6 @@ nameBtn.addEventListener("click", function (e) {
     .then((names) => generateHtml(names));
 
   const generateHtml = (data) => {
-    console.log(data);
     const html = `<p class="name">${data.data.namedays.lt}</p>`;
     const nameSpan = document.querySelector('#names');
     nameSpan.innerHTML = html;
