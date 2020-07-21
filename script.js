@@ -33,18 +33,15 @@ searchBtn.addEventListener("click", (e) => {
         `https://api.abalin.net/getdate?name=${searchBar.value}&country=lt`
       );
       let dates = await res.json();
-      generateDates(dates);
+      let obj = dates.results;
+      // console.log(obj);
+      obj.filter((items) => items.day === items.day);
+      // returns an array of objects
+      document.querySelector("#names").innerHTML = obj;
+      console.log(obj);
     } catch (err) {
       console.log(err);
     }
   };
-
-  const generateDates = (data) => {
-    const dateTxt = `<p>${data.results}</p>`;
-    dateTxt.filter((date) => {
-      return date.day.contains(searchBar.value);
-    });
-  }; // iterate through items in the array of objects.
-
   loadDates();
 });
