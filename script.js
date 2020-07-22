@@ -32,13 +32,21 @@ searchBtn.addEventListener("click", (e) => {
       const res = await fetch(
         `https://api.abalin.net/getdate?name=${searchBar.value}&country=lt`
       );
-      let dates = await res.json();
-      let obj = dates.results;
-      // console.log(obj);
-      obj.filter((items) => items.day === items.day);
-      // returns an array of objects
-      document.querySelector("#names").innerHTML = obj;
-      console.log(obj);
+      const dates = await res.json();
+      const obj = dates.results;
+
+      const nameDates = obj.map(
+        ({ day, month, name }) => `${name}. ${month} menuo ${day} diena.`
+      );
+
+      let namesSearch = "";
+
+      if (namesSearch === "") {
+        nameDates.forEach((item) => {
+          namesSearch += `<li>${item}</li>`;
+        });
+        document.querySelector("#names").innerHTML = namesSearch;
+      }
     } catch (err) {
       console.log(err);
     }
