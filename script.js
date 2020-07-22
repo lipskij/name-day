@@ -36,7 +36,7 @@ searchBtn.addEventListener("click", (e) => {
       const obj = dates.results;
 
       const nameDates = obj.map(
-        ({ day, month, name }) => `${name}. ${month} menuo ${day} diena.`
+        ({ day, month, name }) => `${name}. ${month}men. ${day} diena.`
       );
 
       let namesSearch = "";
