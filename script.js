@@ -1,7 +1,12 @@
-const nameBtn = document.querySelector("#name-btn");
-const searchBar = document.querySelector("#searchbar");
-const searchBtn = document.querySelector("#search-btn");
-const searchNameApi = "https://api.abalin.net/getdate?name=&country=lt";
+const nameBtn = document.querySelector(".name-btn");
+const searchBar = document.querySelector(".searchbar");
+const searchBtn = document.querySelector(".search-btn");
+
+const generateHtml = (data) => {
+  const html = `<p class="name">${data.data.namedays.lt}</p>`;
+  const nameSpan = document.querySelector(".names");
+  nameSpan.innerHTML = html;
+};
 
 nameBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -14,12 +19,6 @@ nameBtn.addEventListener("click", function (e) {
     } catch (err) {
       console.log(err);
     }
-  };
-
-  const generateHtml = (data) => {
-    const html = `<p class="name">${data.data.namedays.lt}</p>`;
-    const nameSpan = document.querySelector("#names");
-    nameSpan.innerHTML = html;
   };
   loadNames();
 });
@@ -45,7 +44,7 @@ searchBtn.addEventListener("click", (e) => {
         nameDates.forEach((item) => {
           namesSearch += `<li>${item}</li>`;
         });
-        document.querySelector("#names").innerHTML = namesSearch;
+        document.querySelector(".names").innerHTML = namesSearch;
       }
     } catch (err) {
       console.log(err);
