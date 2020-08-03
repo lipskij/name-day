@@ -1,6 +1,17 @@
 const nameBtn = document.querySelector(".name-btn");
-const searchBar = document.querySelector(".searchbar");
+const searchBar = document.querySelector(".search-bar");
 const searchBtn = document.querySelector(".search-btn");
+
+// empty seach bar handling
+function emptyField() {
+  if (searchBar.value == '') {
+    document.querySelector('label').innerText = 'Field is empty';
+    document.querySelector('label').classList.add('error');
+  } else {
+    document.querySelector('label').innerText = 'Search for a name';
+    document.querySelector('label').classList.remove('error');
+  }
+}
 
 const generateHtml = (data) => {
   const html = `<p class="name">${data.data.namedays.lt}</p>`;
@@ -35,7 +46,7 @@ searchBtn.addEventListener("click", (e) => {
       const obj = dates.results;
 
       const nameDates = obj.map(
-        ({ day, month, name }) => `${name}. ${month}men. ${day} diena.`
+        ({ day, month, name }) => `${month}-${day}<br>${name}.`
       );
 
       let namesSearch = "";
@@ -47,8 +58,12 @@ searchBtn.addEventListener("click", (e) => {
         document.querySelector(".names").innerHTML = namesSearch;
       }
     } catch (err) {
-      console.log(err);
+      let error = 'Ups, something went wrong';
+      if (err) {
+        document.querySelector('.names').innerHTML = error;
+      }
     }
   };
   loadDates();
+  emptyField();
 });
