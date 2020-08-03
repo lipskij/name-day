@@ -72,6 +72,7 @@ label {
 .search-bar {
   outline: none;
   font-size: var(--size-1);
+  width: 17.5rem;
   padding: 0.4rem;
 }
 .search-btn {
@@ -83,7 +84,7 @@ label {
   font-size: var(--size-1);
   height: var(--size-4);
   margin-top: var(--size-1);
-  width: 13.5rem;
+  width: 17.5rem;
 }
 .search-btn:hover {
   background-color: #9cb5e2;
