@@ -4,7 +4,7 @@ const searchBtn = document.querySelector(".search-btn");
 
 // empty seach bar handling
 function emptyField() {
-  if (searchBar.value == '') {
+  if (searchBar.value === '') {
     document.querySelector('label').innerText = 'Field is empty';
     document.querySelector('label').classList.add('error');
   } else {
